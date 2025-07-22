@@ -5,6 +5,7 @@ import (
 	"sync"
 )
 
+// In this example mutex help to ge concorrency.
 func main() {
 	fmt.Println("ener the number")
 	var wg sync.WaitGroup
