@@ -9,5 +9,5 @@ type StatusResponse struct {
 type EmployeeAllResponse struct {
 	Name       string `json:"name"`
 	Age        int    `json:"age"`
-	EmployeeID int    `json:"employee_id"`
+	EmployeeID string `json:"employee_id"`
 }

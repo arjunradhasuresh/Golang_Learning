@@ -20,9 +20,9 @@ type ServerConfig struct {
 type PostgresConfig struct {
 	Host     string
 	Port     string
-	Username string
+	User     string
 	Password string
-	Database string
+	Dbname   string
 }
 
 func InitConfig() {

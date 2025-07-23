@@ -19,7 +19,7 @@ func EmployeeRouter() chi.Router {
 	router := chi.NewRouter()
 	router.Use(middleware.Logger) // Log all requests
 
-	router.Route("/employees", func(r chi.Router) {
+	router.Route("/", func(r chi.Router) {
 		r.Get("/", employeeCtrl.GetAllEmployees) // Get all employees
 		r.Post("/", employeeCtrl.CreateEmployee) // Create a new employee
 	})

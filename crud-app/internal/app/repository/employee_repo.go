@@ -23,8 +23,9 @@ func NewEmployeeRepository() EmployeeRepository {
 
 func (r *employeeRepository) GetAll() (*[]model.EmployeeAllResponse, error) {
 	database := db.GetDBConnection()
+
 	var response []model.EmployeeAllResponse
-	GetEmployees := `select * from "employee"`
+	GetEmployees := `SELECT name, employee_id, age FROM "employees"`
 	employees, err := database.Query(GetEmployees)
 	if err != nil {
 		return &response, fmt.Errorf("failed to create employee: %w", err)
@@ -37,6 +38,7 @@ func (r *employeeRepository) GetAll() (*[]model.EmployeeAllResponse, error) {
 		}
 		response = append(response, employee)
 	}
+
 	return &response, err
 }
 
