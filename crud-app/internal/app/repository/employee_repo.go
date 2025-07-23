@@ -28,7 +28,7 @@ func (r *employeeRepository) GetAll() (*[]model.EmployeeAllResponse, error) {
 	GetEmployees := `SELECT name, employee_id, age FROM "employees"`
 	employees, err := database.Query(GetEmployees)
 	if err != nil {
-		return &response, fmt.Errorf("failed to create employee: %w", err)
+		return &response, fmt.Errorf("failed to create emploss: %w", err)
 	}
 	for employees.Next() {
 		var employee model.EmployeeAllResponse
@@ -44,22 +44,25 @@ func (r *employeeRepository) GetAll() (*[]model.EmployeeAllResponse, error) {
 
 func (r *employeeRepository) Create(employee model.EmployeeAllResponse) error {
 	database := db.GetDBConnection()
-	CreateEmployee := `INSERT INTO employee (name,employee_id,age) VALUE ($1,$2,$3)`
-	res, err := database.Exec(CreateEmployee, employee.Name, employee.Age, employee.EmployeeID)
+	query := `INSERT INTO employees (name, employee_id, age) VALUES ($1, $2, $3)`
+
+	res, err := database.Exec(query, employee.Name, employee.EmployeeID, employee.Age)
 	if err != nil {
-		log.Println(err)
+		log.Printf("Error executing insert query: %v\n", err)
+		return err
 	}
 
-	val, err := res.RowsAffected()
+	rowsAffected, err := res.RowsAffected()
 	if err != nil {
-		log.Println("error in creating data")
+		log.Printf("Error fetching rows affected: %v\n", err)
+		return err
 	}
 
-	if val > 0 {
-		log.Println("successfully inseared")
+	if rowsAffected > 0 {
+		log.Println("Employee successfully inserted.")
 	} else {
-		log.Println("failed o insert data")
+		log.Println("Insert operation did not affect any rows.")
 	}
-	return err
 
+	return nil
 }

@@ -7,7 +7,7 @@ import (
 )
 
 var RootCmd = cobra.Command{
-	Use:   "Crud",
+	Use:   "crud",
 	Short: "A simple CRUD application",
 	Long:  `This application provides basic CRUD operations for managing resources.`,
 }

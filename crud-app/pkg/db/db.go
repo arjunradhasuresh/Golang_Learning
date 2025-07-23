@@ -11,7 +11,6 @@ import (
 var db *sql.DB
 
 func DBConnection(host, port, user, password, dbname string) error {
-	fmt.Println("hiiii")
 	connStr := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s", host, port, user, password, dbname)
 	var err error
 	db, err = sql.Open("postgres", connStr)

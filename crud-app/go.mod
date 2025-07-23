@@ -1,6 +1,6 @@
 module crud-app
 
-go 1.23
+go 1.24
 
 require (
 	github.com/go-chi/chi v1.5.5
