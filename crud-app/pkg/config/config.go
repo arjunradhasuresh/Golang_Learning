@@ -32,9 +32,9 @@ func InitConfig() {
 		panic("Failed to read config file: " + err.Error())
 	}
 	if viper.Unmarshal(&config); err != nil {
-		log.Fatal("error in unmarshall in config")
+		log.Fatal("Error in unmarshall in config")
 	}
-	log.Println("successfully loaded configuraion")
+	log.Println("Successfully loaded configuraion 111 ")
 }
 
 func GetConfig() *Config {

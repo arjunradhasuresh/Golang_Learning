@@ -61,7 +61,7 @@ func (r *employeeRepository) Create(employee model.EmployeeAllResponse) error {
 	if rowsAffected > 0 {
 		log.Println("Employee successfully inserted.")
 	} else {
-		log.Println("Insert operation did not affect any rows.")
+		log.Println("Insert operation did not affect any row.")
 	}
 
 	return nil

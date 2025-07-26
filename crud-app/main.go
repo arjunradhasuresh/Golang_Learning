@@ -3,5 +3,5 @@ package main
 import "crud-app/cmd"
 
 func main() {
-	cmd.Execute()
+	cmd.StartAPIServer() // Start the API server
 }

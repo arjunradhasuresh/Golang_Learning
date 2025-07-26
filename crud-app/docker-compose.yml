@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crud_app   # ✅ typo fixed from "conatiner_name"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db              # ✅ must match the service name below ("db"), not "postgres"
+      DB_PORT: 5432
+      DB_USER: my_employee
+      DB_PASSWORD: password 
+      DB_NAME: crud_app 
+    networks:
+      - app_network
+
+  db:
+    image: postgres:15-alpine
+    container_name: crud_db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: my_employee
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: crud_app
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app_network
+
+networks:
+  app_network:
+
+volumes:
+  pgdata:

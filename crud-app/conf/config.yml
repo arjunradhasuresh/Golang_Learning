@@ -1,7 +1,7 @@
 Server:
   port: 3000
 Postgres:
-  host: localhost
+  host: db
   port: 5432
   user: my_employee
   password: password
