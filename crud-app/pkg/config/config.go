@@ -34,7 +34,7 @@ func InitConfig() {
 	if viper.Unmarshal(&config); err != nil {
 		log.Fatal("Error in unmarshall in config")
 	}
-	log.Println("Successfully loaded configuraion 111 ")
+	log.Println("Successfully loaded configuraion")
 }
 
 func GetConfig() *Config {

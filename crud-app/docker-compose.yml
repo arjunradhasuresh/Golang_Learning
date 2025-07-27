@@ -16,6 +16,9 @@ services:
       DB_USER: my_employee
       DB_PASSWORD: password 
       DB_NAME: crud_app 
+    volumes:
+      - .:/app         # 🔥 Mount local directory into container
+      - air_tmp:/tmp
     networks:
       - app_network
 
@@ -39,3 +42,4 @@ networks:
 
 volumes:
   pgdata:
+  air_tmp:

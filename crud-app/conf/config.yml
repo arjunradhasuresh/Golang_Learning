@@ -6,4 +6,3 @@ Postgres:
   user: my_employee
   password: password
   dbname: crud_app  
-
